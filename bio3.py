@@ -15,4 +15,5 @@ def PatternCount(Text, Pattern):
     return count       
             
 print(PatternCount(text,pattern))            
-            
+
+#u can add any sequence and pattern fo rit and it will work in this code
