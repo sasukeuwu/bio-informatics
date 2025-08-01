@@ -1,0 +1,22 @@
+import random
+
+def generate_dna(length=6):
+    return ''.join(random.choice('ATCG') for _ in range(length))
+
+def get_feedback(secret, guess):
+    correct = sum(1 for a, b in zip(secret, guess) if a == b)
+    return f"{correct} base(s) correct in the right position"
+
+def play_game():
+    secret = generate_dna()
+    attempts = 0
+    print("Guess the 6-letter DNA sequence (A, T, C, G):")
+
+    while True:
+        guess = input("Your guess: ").upper()
+        if len(guess) != len(secret) or any(base not in "ATCG" for base in guess):
+            print("Invalid input. Use only A, T, C, or G (6 letters).")
+            continue
+        attempts += 1
+        if guess == secret:
+            print(f"Correct! You guessed it in {attempts} attempt(s).")
